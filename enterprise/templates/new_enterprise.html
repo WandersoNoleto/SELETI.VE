@@ -13,11 +13,19 @@
             </div>
 
             <div class="body-box">
-                <form action="" method="" enctype="multipart/form-data">
+                {% if messages %}
+                    {% for message in messages %}
+                        <section class="alert {{message.tags}}">
+                            {{message}}
+                        </section>
+                    {% endfor %}
+                {% endif %}
+                <form action="{% url 'new_enterprise' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col-md">
                             <label>Nome:</label>
-                            <input type="text" class="form-control" name="nome" placeholder="Digite seu nome...">
+                            <input type="text" class="form-control" name="name" placeholder="Digite seu nome...">
                         </div>
 
                         <div class="col-md">
@@ -30,12 +38,12 @@
                     <div class="row">
                         <div class="col-md">
                             <label>Cidade:</label>
-                            <input type="text" class="form-control" name="cidade" placeholder="Digite a cidade da empresa...">
+                            <input type="text" class="form-control" name="city" placeholder="Digite a cidade da empresa...">
                         </div>
 
                         <div class="col-md">
                             <label>Endereço:</label>
-                            <input type="text" class="form-control" name="endereco" placeholder="Rua...">
+                            <input type="text" class="form-control" name="address" placeholder="Rua...">
                         </div>
 
                     </div>
@@ -43,7 +51,7 @@
                     <div class="row">
                         <div class="col-md">
                             <label>Nicho de mercado:</label>
-                            <select class="form-control" name="nicho">
+                            <select class="form-control" name="category">
                                 <option value="M">Marketing</option>
                                 <option value="N">Nutrição</option>
                                 <option value="D">Design</option>
@@ -54,8 +62,10 @@
                     <div class="row">
                         <div class="col-md">
                             <label>Tecnologias usadas:</label>
-                            <select class="form-control" name="tecnologias" multiple>                                
-                                <option value=""></option>
+                            <select class="form-control" name="technologies" multiple>  
+                                {% for tech in techs %}
+                                    <option value="{{tech.id}}">{{tech.technology}}</option>
+                                {% endfor %}                              
                                 
                             </select>
                         </div>
@@ -64,7 +74,7 @@
                     <div class="row">
                         <div class="col-md">
                             <label>Característica da empresa:</label>
-                            <textarea name="caracteristicas" class="form-control"></textarea>
+                            <textarea name="characteristics" class="form-control"></textarea>
                         </div>
                     </div>
                     <br>
