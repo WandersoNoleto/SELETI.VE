@@ -52,3 +52,20 @@ def new_enterprise(request):
         enterprise.save()
         messages.add_message(request, constants.SUCCESS, 'Empresa cadastrada com sucesso')
         return redirect('/home/empresas')
+
+def show_enterprises(request):
+    enterprises  = Enterprise.objects.all()
+    technologies = Technology.objects.all()
+
+    context = {
+        "enterprises":  enterprises,
+        "technologies": technologies
+    }
+
+    return render(request, 'enterprises.html', context)
+
+def delete_enterprise(request, id):
+    enterprise = Enterprise.objects.get(id=id)
+    enterprise.delete()
+    messages.add_message(request, constants.SUCCESS, 'Empresa excluída com sucesso')
+    return redirect('/home/empresas')
