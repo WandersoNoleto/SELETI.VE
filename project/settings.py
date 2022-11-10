@@ -35,7 +35,7 @@ INSTALLED_APPS = [
 ]
 
 INSTALLED_APPS += [
-    'enterprise'
+    'companys'
 ]
 
 MIDDLEWARE = [
@@ -63,7 +63,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             'libraries': {
-                'filters': 'enterprise.template_tags.filters',
+                'filters': 'companys.template_tags.filters',
 }
         },
     },

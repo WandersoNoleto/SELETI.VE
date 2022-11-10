@@ -2,10 +2,10 @@ from django.contrib import messages
 from django.contrib.messages import constants
 from django.shortcuts import redirect, render
 
-from enterprise.models import Enterprise, Technology
+from companys.models import Company, Technology
 
 
-def new_enterprise(request):
+def new_companys(request):
 
     if request.method == "GET":
         techs = Technology.objects.all()
@@ -14,7 +14,7 @@ def new_enterprise(request):
             "techs": techs
         }
 
-        return render(request, 'new_enterprise.html', context)
+        return render(request, 'new_company.html', context)
         
     elif request.method == "POST":
         name = request.POST.get('name')
@@ -34,11 +34,11 @@ def new_enterprise(request):
             messages.add_message(request, constants.ERROR, 'A logo da empresa deve ter menos de 10MB')
             return redirect('/home/nova_empresa')
 
-        if category not in [i[0] for i in Enterprise.choices_category]:
+        if category not in [i[0] for i in companys.choices_category]:
             messages.add_message(request, constants.ERROR, 'Nicho de mercado inválido')
             return redirect('/home/nova_empresa')
 
-        enterprise = Enterprise(logo=logo,
+        companys = companys(logo=logo,
                         name=name,
                         email=email,
                         city=city,
@@ -47,34 +47,34 @@ def new_enterprise(request):
                         company_characteristics=characteristics
                     )
 
-        enterprise.save()
-        enterprise.technology.add(*technologies)
-        enterprise.save()
+        companys.save()
+        companys.technology.add(*technologies)
+        companys.save()
         messages.add_message(request, constants.SUCCESS, 'Empresa cadastrada com sucesso')
         return redirect('/home/empresas')
 
-def show_enterprises(request):
-    enterprises  = Enterprise.objects.all()
+def show_companys(request):
+    companys  = Company.objects.all()
     technologies = Technology.objects.all()
 
     tech_filter = request.GET.get('technologies')
     name_filter = request.GET.get('name')
 
     if tech_filter:
-        enterprises = enterprises.filter(technology = tech_filter)
+        companys = companys.filter(technology = tech_filter)
 
     if name_filter:
-       enterprises = enterprises.filter(name__icontains = name_filter)
+       companys = companys.filter(name__icontains = name_filter)
 
     context = {
-        "enterprises":  enterprises,
+        "companys":  companys,
         "technologies": technologies
     }
 
-    return render(request, 'enterprises.html', context)
+    return render(request, 'companys.html', context)
 
-def delete_enterprise(request, id):
-    enterprise = Enterprise.objects.get(id=id)
-    enterprise.delete()
+def delete_companys(request, id):
+    companys = Company.objects.get(id=id)
+    companys.delete()
     messages.add_message(request, constants.SUCCESS, 'Empresa excluída com sucesso')
     return redirect('/home/empresas')

@@ -3,7 +3,7 @@
 {% load filters %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'enterprise/css/enterprise.css' %}">
+    <link rel="stylesheet" href="{% static 'company/css/company.css' %}">
 {% endblock head %}
 
 {% block content %}
@@ -23,7 +23,7 @@
             <div class="borda-box"></div>
             <div class="body-box">
             
-                <form action="{% url 'show_enterprises' %}" method="GET">
+                <form action="{% url 'show_companys' %}" method="GET">
                     {% csrf_token %}
                 <div class="row">
                     
@@ -53,27 +53,27 @@
                         <th>Quantidade de vagas</th>
                         <th>Ação</th>
                     </tr>
-                        {% for enterprise in enterprises%}
+                        {% for company in companys%}
                         <tr {% if not forloop.counter|is_even %} class="tabela-linha" {% endif %}>
-                            <td>{{enterprise.name}}</td>
-                            <td>{{enterprise.address}}</td>
+                            <td>{{company.name}}</td>
+                            <td>{{company.address}}</td>
                             <td>
                                 <select class="form-select">                                    
-                                    {% for tech in enterprise.technology.all %}
+                                    {% for tech in company.technology.all %}
                                         <option>{{tech}}</option>
                                     {% endfor %}                      
                                 </select>
                             </td>
                             <td>
-                                {% if enterprise.number_job_vacancies > 0 %}
-                                    <img src="{% static 'enterprise/img/green-flag.svg' %}">
+                                {% if company.number_job_vacancies > 0 %}
+                                    <img src="{% static 'company/img/green-flag.svg' %}">
                                 {% else %}
-                                    <img src="{% static 'enterprise/img/red-flag.svg' %}">
+                                    <img src="{% static 'company/img/red-flag.svg' %}">
                                 {% endif %}
-                                    &nbsp&nbsp{{ enterprise.number_job_vacancies }} vaga(s)
+                                    &nbsp&nbsp{{ company.number_job_vacancies }} vaga(s)
                             </td>
                             <td>
-                                <a href="{% url 'delete_enterprise' enterprise.id %}" class="btn-excluir">Excluir empresa</a>
+                                <a href="{% url 'delete_company' company.id %}" class="btn-excluir">Excluir empresa</a>
                             </td>
                         </tr>
                     {% endfor %}

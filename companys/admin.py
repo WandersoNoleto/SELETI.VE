@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from enterprise.models import Enterprise, Jobs, Technology
+from companys.models import Company, Jobs, Technology
 
 admin.site.register(Technology)
-admin.site.register(Enterprise)
+admin.site.register(Company)
 admin.site.register(Jobs)

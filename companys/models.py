@@ -7,13 +7,13 @@ class Technology(models.Model):
     def __str__(self):
         return self.technology
 
-class Enterprise(models.Model):
+class Company(models.Model):
     choices_category = (
         ('M', 'Marketing'),
         ('N', 'Nutrição'),
         ('D', 'Design')
     )
-    logo  = models.ImageField(upload_to="logo_enterprise")
+    logo  = models.ImageField(upload_to="logo_company")
     name  = models.CharField(max_length=30, verbose_name="nome")
     email = models.EmailField()
     city = models.CharField(max_length=30, verbose_name="cidade")
@@ -26,7 +26,7 @@ class Enterprise(models.Model):
         return self.name
 
     def number_job_vacancies(self):
-        return Jobs.objects.filter(enterprise__id=self.id).count()
+        return Jobs.objects.filter(company__id=self.id).count()
 
 
 
@@ -45,7 +45,7 @@ class Jobs(models.Model):
         ('F', 'Finalizado')
     )
     
-    enterprise = models.ForeignKey(Enterprise, on_delete=models.DO_NOTHING, verbose_name="empresa")
+    company = models.ForeignKey(Company, on_delete=models.DO_NOTHING, verbose_name="empresa")
     title = models.CharField(max_length=30, verbose_name="titulo")
     lvl_experience = models.CharField(max_length=2, choices=choices_experience, verbose_name="nivel_experiencia")
     final_date = models.DateField(verbose_name="data final")
