@@ -57,6 +57,15 @@ def show_enterprises(request):
     enterprises  = Enterprise.objects.all()
     technologies = Technology.objects.all()
 
+    tech_filter = request.GET.get('technologies')
+    name_filter = request.GET.get('name')
+
+    if tech_filter:
+        enterprises = enterprises.filter(technology = tech_filter)
+
+    if name_filter:
+       enterprises = enterprises.filter(name__icontains = name_filter)
+
     context = {
         "enterprises":  enterprises,
         "technologies": technologies

@@ -23,16 +23,19 @@
             <div class="borda-box"></div>
             <div class="body-box">
             
-                <form>
+                <form action="{% url 'show_enterprises' %}" method="GET">
+                    {% csrf_token %}
                 <div class="row">
                     
                         <div class="col-md-5">
-                            <input type="text" placeholder="Busque pelo nome" class="form-control" name="nome">
+                            <input type="text" placeholder="Busque pelo nome" class="form-control" name="name">
                         </div>
 
                         <div class="col-md-4">
-                            <select class="form-select" name="tecnologias">
-                                <option value="">--------</option>
+                            <select class="form-select" name="technologies">
+                                {% for tech in technologies%}
+                                    <option value="{{tech.id}}">{{tech}}</option>
+                                {% endfor %}
                             </select>
                         </div>
                     
@@ -62,7 +65,12 @@
                                 </select>
                             </td>
                             <td>
-                                Quantidade de vagas
+                                {% if enterprise.number_job_vacancies > 0 %}
+                                    <img src="{% static 'enterprise/img/green-flag.svg' %}">
+                                {% else %}
+                                    <img src="{% static 'enterprise/img/red-flag.svg' %}">
+                                {% endif %}
+                                    &nbsp&nbsp{{ enterprise.number_job_vacancies }} vaga(s)
                             </td>
                             <td>
                                 <a href="{% url 'delete_enterprise' enterprise.id %}" class="btn-excluir">Excluir empresa</a>

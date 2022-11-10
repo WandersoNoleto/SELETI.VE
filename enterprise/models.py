@@ -13,8 +13,8 @@ class Enterprise(models.Model):
         ('N', 'Nutrição'),
         ('D', 'Design')
     )
-    logo = models.ImageField(upload_to="logo_enterprise")
-    name = models.CharField(max_length=30, verbose_name="nome")
+    logo  = models.ImageField(upload_to="logo_enterprise")
+    name  = models.CharField(max_length=30, verbose_name="nome")
     email = models.EmailField()
     city = models.CharField(max_length=30, verbose_name="cidade")
     technology = models.ManyToManyField(Technology, verbose_name="tecnologias")
@@ -24,6 +24,11 @@ class Enterprise(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    def number_job_vacancies(self):
+        return Jobs.objects.filter(enterprise__id=self.id).count()
+
+
 
 class Jobs(models.Model):
     choices_experience = (
