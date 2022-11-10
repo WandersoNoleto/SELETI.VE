@@ -49,11 +49,12 @@ class Jobs(models.Model):
     
     company = models.ForeignKey(Company, on_delete=models.DO_NOTHING, verbose_name="empresa")
     title = models.CharField(max_length=30, verbose_name="titulo")
+    email = models.EmailField(null=True)
     lvl_experience = models.CharField(max_length=2, choices=choices_experience, verbose_name="nivel_experiencia")
     final_date = models.DateField(verbose_name="data final")
     status = models.CharField(max_length=30, choices=choices_status)
     technologies_master = models.ManyToManyField(Technology, verbose_name="tecnologias_dominadas")
-    Technology_study = models.ManyToManyField(Technology, related_name='estudar', verbose_name="tecnoligias_estudar")
+    technology_study = models.ManyToManyField(Technology, related_name='estudar', verbose_name="tecnoligias_estudar")
 
 
     def __str__(self):

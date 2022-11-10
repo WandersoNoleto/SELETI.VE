@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.messages import constants
 from django.shortcuts import get_object_or_404, redirect, render
 
-from companys.models import Company, Technology
+from companys.models import Company, Jobs, Technology
 
 
 def new_companys(request):
@@ -81,9 +81,15 @@ def delete_companys(request, id):
 
 def company_details(request, id):
     company = get_object_or_404(Company, id=id)
+    companys =  Company.objects.all()
+    technologies = Technology.objects.all()
+    jobs = Jobs.objects.filter(company_id=id)
 
     context = {
-        'company': company
+        'company': company,
+        'companys': companys,
+        'technologies': technologies,
+        'jobs': jobs
     }
 
     return render(request, 'company.html', context)
