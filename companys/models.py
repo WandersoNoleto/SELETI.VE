@@ -27,6 +27,8 @@ class Company(models.Model):
 
     def number_job_vacancies(self):
         return Jobs.objects.filter(company__id=self.id).count()
+    
+
 
 
 

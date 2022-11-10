@@ -6,4 +6,5 @@ urlpatterns = [
     path ('nova_empresa/', views.new_companys, name="new_company"),
     path('empresas/', views.show_companys, name="show_companys"),
     path('excluir_empresa/<int:id>', views.delete_companys, name="delete_company"),
+    path('empresa/<int:id>', views.company_details, name="company")
 ]

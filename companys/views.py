@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.contrib.messages import constants
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from companys.models import Company, Technology
 
@@ -17,10 +17,10 @@ def new_companys(request):
         return render(request, 'new_company.html', context)
         
     elif request.method == "POST":
-        name = request.POST.get('name')
+        name  = request.POST.get('name')
         email = request.POST.get('email')
-        city = request.POST.get('city')
-        address = request.POST.get('address')
+        city  = request.POST.get('city')
+        address  = request.POST.get('address')
         category = request.POST.get('category')
         characteristics = request.POST.get('characteristics')
         technologies = request.POST.getlist('technologies')
@@ -78,3 +78,12 @@ def delete_companys(request, id):
     companys.delete()
     messages.add_message(request, constants.SUCCESS, 'Empresa excluída com sucesso')
     return redirect('/home/empresas')
+
+def company_details(request, id):
+    company = get_object_or_404(Company, id=id)
+
+    context = {
+        'company': company
+    }
+
+    return render(request, 'company.html', context)
