@@ -16,7 +16,7 @@ class Company(models.Model):
     )
     logo  = models.ImageField(upload_to="logo_company")
     name  = models.CharField(max_length=30, verbose_name="nome")
-    email = models.EmailField()
+    email = models.EmailField(null=True)
     city = models.CharField(max_length=30, verbose_name="cidade")
     technology = models.ManyToManyField(Technology, verbose_name="tecnologias")
     address = models.CharField(max_length=60, verbose_name="endereço")
@@ -27,12 +27,12 @@ class Company(models.Model):
         return self.name
 
     def number_job_vacancies(self):
-        return Jobs.objects.filter(company__id=self.id).count()
+        return Vacancy.objects.filter(company__id=self.id).count()
     
 
 
 
-class Jobs(models.Model):
+class Vacancy(models.Model):
     choices_experience = (
         ('J', 'Júnior'),
         ('P', 'Pleno'),
@@ -53,7 +53,8 @@ class Jobs(models.Model):
     lvl_experience = models.CharField(max_length=2, choices=choices_experience, verbose_name="nivel_experiencia")
     final_date = models.DateField(verbose_name="data final")
     status = models.CharField(max_length=30, choices=choices_status)
-
+    technologies_to_study = models.ManyToManyField(Technology, related_name='estudar')
+    technologies_matereds = models.ManyToManyField(Technology)
 
     def __str__(self):
         return self.title

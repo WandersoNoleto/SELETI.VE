@@ -14,6 +14,8 @@
 
 .btn-orange:hover{
     background-color: #a8471a;
+    color: white;
+    border: none
 }
  
 

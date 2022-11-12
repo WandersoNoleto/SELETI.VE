@@ -3,7 +3,7 @@ from django.contrib.messages import constants
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 
-from companys.models import Company, Jobs, Technology
+from companys.models import Company, Technology, Vacancy
 
 
 def new_companys(request):
@@ -90,13 +90,13 @@ def company_details(request, id):
 
     companys =  Company.objects.all()
     technologies = Technology.objects.all()
-    jobs = Jobs.objects.filter(company_id=id)
+    vacancies = Vacancy.objects.filter(company_id=id)
 
     context = {
         'company': company,
         'companys': companys,
         'technologies': technologies,
-        'jobs': jobs
+        'vacancies': vacancies
     }
 
     return render(request, 'company_details.html', context)

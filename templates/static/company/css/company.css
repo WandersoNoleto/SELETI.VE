@@ -66,6 +66,22 @@
     margin-top: 20px;
 }
 
+/* .tabela tbody{
+    max-height: 17.25rem;
+    overflow-y: scroll;
+}
+
+.tabela tbody::-webkit-scrollbar{
+    border-radius: 0.4rem;
+    background-color: #1f283a;
+    width: 0.6rem;
+}
+
+.tabela tbody::-webkit-scrollbar-thumb{
+    background-color: #5f6EB2;
+    border-radius: 1rem;
+} */
+
 .tabela-linha{
     background-color: #EDE6E6;
 }
