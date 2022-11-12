@@ -11,7 +11,8 @@ class Company(models.Model):
     choices_category = (
         ('M', 'Marketing'),
         ('N', 'Nutrição'),
-        ('D', 'Design')
+        ('D', 'Design'),
+        ('T', 'Tecnologia')
     )
     logo  = models.ImageField(upload_to="logo_company")
     name  = models.CharField(max_length=30, verbose_name="nome")
@@ -53,8 +54,6 @@ class Jobs(models.Model):
     lvl_experience = models.CharField(max_length=2, choices=choices_experience, verbose_name="nivel_experiencia")
     final_date = models.DateField(verbose_name="data final")
     status = models.CharField(max_length=30, choices=choices_status)
-    technologies_master = models.ManyToManyField(Technology, verbose_name="tecnologias_dominadas")
-    technology_study = models.ManyToManyField(Technology, related_name='estudar', verbose_name="tecnoligias_estudar")
 
 
     def __str__(self):
