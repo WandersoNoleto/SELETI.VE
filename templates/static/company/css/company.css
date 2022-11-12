@@ -70,11 +70,25 @@
     background-color: #EDE6E6;
 }
 
-.btn-excluir{
+.btn-delete{
     text-decoration: none;
     color: white;
-    background-color: #7D2948;
+    background-color: #aa1818;
     padding: 10px;
     border-radius: 10px;
     font-weight: bold;
+}
+
+.btn-view{
+    text-decoration: none;
+    color: white;
+    background-color: #1f2f64;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.svg-icon{
+    height: 1rem;
+    width: 1rem;
 }

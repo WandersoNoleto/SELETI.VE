@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link href="{% static 'company/css/company_details.css' %}" rel="stylesheet">
+{% endblock%}
+
+
+{% block content %}
+
+    
+    <br>
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <br>
+                <section class="alert {{message.tags}}">
+                    {{message}}
+                </section>
+            {% endfor %}
+        {% endif %}    
+        <div class="row">
+            <div class="col-md-3">
+                <img width="100%" src="{{company.logo.url}}">
+            </div>
+
+            <div class="col-md">
+                <h1 class="titulo">{{company.name}}</h1>
+                <p class="paragrafo">{{company.address}}</p>
+            </div>
+
+
+
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Nicho de mercado:</label>
+                <input disabled type="text" class="form-control" value="{{ company.get_market_category_display }}">
+            </div>
+
+            <div class="col-md-3">
+                <label>Tecnologias usadas:</label>
+                <select class="form-select">
+                    {% for tech in company.technology.all %}
+                        <option>{{tech}}</option>
+                    {% endfor %}   
+
+                </select>
+                
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-7">
+                <label>Características da empresa:</label>
+                <textarea disabled class="form-control">{{company.company_characteristics}}</textarea>
+            </div>
+
+            <div class="col-md-3">
+                
+                
+            </div>
+        </div>
+
+        <hr>
+
+        <a class="btn btn-lg btn-orange">Nova vaga</a>
+
+        <div class="row">
+            vagas
+        </div>
+
+    </div>
+    <br>
+    <br>
+
+{% endblock %}

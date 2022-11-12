@@ -32,7 +32,6 @@ class Company(models.Model):
 
 
 
-
 class Jobs(models.Model):
     choices_experience = (
         ('J', 'Júnior'),

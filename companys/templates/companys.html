@@ -18,7 +18,7 @@
                     {% endfor %}
                 {% endif %}
                 <h2 class="titulo">Gerenciar empresas</h2>
-                <a class="btn-nova-empresa">Nova empresa</a>
+                <a href="{% url 'new_company' %}" class="btn-nova-empresa">Nova empresa</a>
             </div>
             <div class="borda-box"></div>
             <div class="body-box">
@@ -33,6 +33,7 @@
 
                         <div class="col-md-4">
                             <select class="form-select" name="technologies">
+                                <option value="">Todas</option>
                                 {% for tech in technologies%}
                                     <option value="{{tech.id}}">{{tech}}</option>
                                 {% endfor %}
@@ -73,7 +74,8 @@
                                     &nbsp&nbsp{{ company.number_job_vacancies }} vaga(s)
                             </td>
                             <td>
-                                <a href="{% url 'delete_company' company.id %}" class="btn-excluir">Excluir empresa</a>
+                                <a href="{% url 'company_details' company.id %}" class="btn-view"><img class="svg-icon" src="{% static 'company/img/eye.svg' %}" alt="Visualizar"></a>
+                                <a href="{% url 'delete_company' company.id %}" class="btn-delete"><img class="svg-icon" src="{% static 'company/img/trash.svg' %}" alt="Deletar"></a>
                             </td>
                         </tr>
                     {% endfor %}

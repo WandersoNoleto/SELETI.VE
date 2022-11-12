@@ -8,26 +8,20 @@
 }
 
 .btn-orange{
-
     background-color: #ED8554;
     color: white;
 }
+
+.btn-orange:hover{
+    background-color: #a8471a;
+}
+ 
 
 .titulo{
 
     color: #7D2948;
     font-weight: bold;
 
-}
-
-.paragrafo{
-    font-size: 25px;
-}
-
-.btn-orange{
-
-    background-color: #ED8554;
-    color: white;
 }
 
 label{
