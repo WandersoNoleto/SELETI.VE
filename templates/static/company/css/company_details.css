@@ -20,7 +20,6 @@
  
 
 .titulo{
-
     color: #7D2948;
     font-weight: bold;
 
@@ -31,13 +30,14 @@ label{
 }
 
 .box-vagas{
-
-    width: 400px;
+    border-radius: 1rem;
+    width: 18.75rem;
     margin-top: 60px;
     background-color: #EDE6E6;
 }
 
 .header-vagas{
+    border-radius: 1rem 1rem 0 0;
     background-color: #7D2948;
     padding: 15px;
     color: white
@@ -47,6 +47,20 @@ label{
     padding: 15px;
 }
 
-.paragrafo-orange{
+.text-1{
+    font-size: 1.2rem;
+}
+
+.text-1-orange{
     color: #ED8554;
+}
+
+.title-link-vacancy{
+    text-decoration: none;
+    color: white;
+}
+
+.title-link-vacancy:hover{
+    font-weight: bold;
+    color: white;
 }

@@ -56,5 +56,13 @@ class Vacancy(models.Model):
     technologies_to_study = models.ManyToManyField(Technology, related_name='estudar')
     technologies_matereds = models.ManyToManyField(Technology)
 
+    def progress(self):
+        x = [((i+1)*20,j[0]) for i, j in enumerate(self.choices_status)]
+        x = list(filter(lambda x: x[1] == self.status, x))[0][0]
+        return x
+
     def __str__(self):
         return self.title
+
+
+

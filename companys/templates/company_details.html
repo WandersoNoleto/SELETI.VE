@@ -73,21 +73,21 @@
         
             <div class="box-vagas">
                 <div class="header-vagas">
-                    {{vacancy.title}}
+                    <a class="title-link-vacancy" href="{% url 'show_vacancy' vacancy.id %}">{{vacancy.title}}</a>
                 </div>
         
                 <div class="body-vagas">
                     <div class="row">
                         <div class="col-md">
-                            <label class="paragrafo">Nível:</label>
+                            <label class="text-1">Nível:</label>
                             <br>        
-                            <label class="paragrafo paragrafo-orange">{{vacancy.get_lvl_experience_display}}</label>                           
+                            <label class="text-1 text-1-orange">{{vacancy.get_lvl_experience_display}}</label>                           
                         </div>
         
                         <div class="col-md">
-                            <label class="paragrafo">Status <img src="{% static 'company/img/green-flag.svg' %}"></label>
+                            <label class="text-1">Status <img src="{% static 'company/img/green-flag.svg' %}"></label>
                             <br>        
-                            <label class="paragrafo paragrafo-orange">{{vacancy.get_status_display}}</label>                           
+                            <label class="text-1 text-1-orange">{{vacancy.get_status_display}}</label>                           
                         </div>
         
                     </div>
