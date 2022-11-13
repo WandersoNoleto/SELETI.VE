@@ -50,11 +50,12 @@ class Vacancy(models.Model):
     company = models.ForeignKey(Company, on_delete=models.DO_NOTHING, verbose_name="empresa")
     title = models.CharField(max_length=30, verbose_name="titulo")
     email = models.EmailField(null=True)
-    lvl_experience = models.CharField(max_length=2, choices=choices_experience, verbose_name="nivel_experiencia")
+    lvl_experience = models.CharField(max_length=2, choices=choices_experience, verbose_name="nivel de experiencia")
     final_date = models.DateField(verbose_name="data final")
     status = models.CharField(max_length=30, choices=choices_status)
-    technologies_to_study = models.ManyToManyField(Technology, related_name='estudar')
-    technologies_matereds = models.ManyToManyField(Technology)
+    technologies_to_study = models.ManyToManyField(Technology, related_name='estudar', verbose_name="Tecnologias para estudar")
+    technologies_matereds = models.ManyToManyField(Technology, verbose_name="Tecnologias dominadas")
+
 
     def progress(self):
         x = [((i+1)*20,j[0]) for i, j in enumerate(self.choices_status)]

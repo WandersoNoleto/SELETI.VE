@@ -7,4 +7,27 @@ body{
 .bg-nav{
     background-color: #3B0032 !important;
     padding: 10px;
+    max-height: 5rem;
 }
+
+.content-logo{
+    max-width: 10rem;
+    margin-top: 1rem;
+    margin-left: 2rem;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.svg-icon-logo{
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
+.logo-title{
+    letter-spacing: 0.2rem;
+    font-weight: bold;
+
+    padding: 0.2rem 0 0 0;
+}
+
