@@ -2,7 +2,7 @@
    <div/>
 
 <div align="center">
-  <img width="1092px" height="534.4px" src="/readme-doc/img/main_picture.png"/><center>
+  <img width="1092px" height="500px" src="/readme-doc/img/main_picture.png"/><center>
 <div/>
 
 <div align="left">
@@ -20,11 +20,7 @@
 **Back-end:** Django
 
 ## :key: Variáveis de Ambiente
-<div align="justify">
-&nbsp&nbspA aplicação tem a funcionalidade de informar via SMS os dados do relatório de vendas 
-de um determinado vendador ao número informado, utilizando-se da API da <a href="https://www.twilio.com/pt-br/">Twilio<a>. Para que o projeto funcione corretamente, você vai precisar adicionar as seguintes variáveis de ambiente:
-<div/>
-<br>
+
 
 `SECRET_KEY`
 
@@ -36,15 +32,15 @@ de um determinado vendador ao número informado, utilizando-se da API da <a href
 
 <div/>
 
-## :mag_right: Preview
+##  <div align="center">:mag_right: Preview<div/>
 
 <div align="center">
 <img width="546px" height="267px" src="/readme-doc/img/IOS_company.png"/><center>
 <br>
 <br>
 
-<img width="1092px" height="534.4px" src="/readme-doc/img/add_new_vacancy.png"/><center>
+<img width="546px" height="267px" src="/readme-doc/img/add_new_vacancy.png"/><center>
 <br>
 <br>
-<img width="1092px" height="534.4px" src="/readme-doc/img/vacancy_view.gif"/><center>
+<img width="546px" height="267px" src="/readme-doc/img/vacancy_view.gif"/><center>
 <div/>
