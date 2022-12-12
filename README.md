@@ -10,7 +10,7 @@
   ## :computer: Sobre
 <div align="justify">
 &nbsp&nbsp A ideia gira em torno de uma plataforma para aqueles que buscam emprego poderem se organizar melhor. É possível cadastrar as empresas para qual deseja tentar as vagas, cadastrar detalhes e registrar a organização de seus estudos para as mesmas, assim concentrando em um único lugar as informações relacionadas à todas as vagas que está interessado ou até mesmo passando por etapas de contratação. <br>
-&nbsp&nbsp O projeto foi desenvolvido durante a Pylab2022 organizado pela equipe <a href="https://pythonando.com.br/">Pythonando<a/> . O objetivo do evento era entregar uma proposta de aplicação, dar a estrutura base em HTML juntamente com sua estilização e desafiar o partipante a construir o backend com as funcionalidades propostas. 
+&nbsp&nbsp O projeto foi desenvolvido durante a Pylab2022 organizado pela equipe <a href="https://pythonando.com.br/">Pythonando<a/>. O objetivo do evento era entregar uma proposta de aplicação, dar a estrutura base em HTML juntamente com sua estilização e desafiar o partipante a construir o backend com as funcionalidades propostas. 
 <div/>
 
 ## :rocket: Stack utilizada
